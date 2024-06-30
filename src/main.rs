@@ -70,7 +70,7 @@ async fn validate_token(token: &str, config: &KeycloakConfig, decoding_keys: &Ha
 }
 
 async fn check_role(claims: &Claims, required_role: &str) -> bool {
-    if let Some(resource_access) = claims.resource_access.get("java-spring3-microservice") {
+    if let Some(resource_access) = claims.resource_access.get("srv-client") {
         if resource_access.roles.contains(&required_role.to_string()) {
             return true;
         }
@@ -108,7 +108,7 @@ async fn index(req: HttpRequest) -> impl Responder {
 async fn main() -> std::io::Result<()> {
     // Load Keycloak configuration
     let config = Arc::new(KeycloakConfig {
-        issuer: "http://localhost:8081/realms/orfosys".into(),
+        issuer: "http://localhost:8081/realms/chaosystema".into(),
 //         client_id: "java-spring3-microservice".into(),
         required_role: "CLIENT_ADMIN".into(),
     });
