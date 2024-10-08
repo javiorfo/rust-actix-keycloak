@@ -1,5 +1,5 @@
 [package]
-name = "rust-keycloak"
+name = "rust-actix-keycloak"
 version = "0.1.0"
 edition = "2021"
 
